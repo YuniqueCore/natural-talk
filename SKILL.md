@@ -87,7 +87,8 @@ description: 自然人味交互与去 AI 腔。消除客服腔、谄媚评判、
 | 日常对话、一般生成 | 本页 |
 | 小说/故事创作、fiction 清理 | 本页 + `references/fiction.md` |
 | 论述类成文清理 | 本页 + `references/rules-full.md` |
-| **技术踩坑记录 / 过程文 / 教程文写作** | 本页 + `references/anti-examples.md`（退稿实录反面案例库：上位者旁白、金句癖、表演叙述、详略失当、该贴代码不贴；发稿前过第十节自查清单） |
+| **技术踩坑记录 / 过程文 / 教程文写作** | 本页 + `references/anti-examples.md`（退稿实录反面案例库：上位者旁白、金句癖、表演叙述、详略失当、该贴代码不贴、英文 AI 腔；发稿前过第十一节自查清单） |
 | 长文草稿（>2000 字） | 加跑 `scripts/scan-mechanical.py`（生成 `--mode gen`，清理默认 prose，fiction 用 `--mode fiction`） |
+| **去 AI 味 / slop 检测与清理**（用户点名"检测 AI 痕迹 / 说人话 / 去 slop"，或需要词库+脚本的确定性扫描） | 加载 `references/anti-slop-kit/SKILL.md`：跑 `scripts/slop_check.py` 拿候选，按其 references 做语义裁决；与 rules-full 的 B 层规则互补不互斥。要给 slop 偏好对打分或扩数据集（RFAIL/RLAIF→RLHF）时读其 `dataset/README.md` |
 
 **角色卡/长设定拼接**（system 同时含角色卡与本规则时）：规则放 system 前部、角色设定放后部，总长超过 15K 字符时模型对尾部规则的依从度会明显衰减（实测弱模型在 20K+ system 下翻案腔回潮）。两个缓解手段按序尝试：①能开深度思考就开（思考充分的模型受 system 体积影响显著更小）；②成文后必跑扫描器并把 FIX/REVIEW 命中处人工复核改写。规则位置调换实测改善有限，问题主体是模型对长指令的注意力衰减，非组装顺序。
